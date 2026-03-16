@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<main class="container">
+    <header>
+      <h1>My Library</h1>
+      <div class="controls">
+        <button id="new-book-btn" class="btn">+ New Book</button>
+      </div>
+    </header>
+
+    <!-- Simple form (hidden by default) -->
+    <form id="book-form" class="book-form" style="display: none;">
+      <h2>Add a New Book</h2>
+
+      <label>
+        Title
+        <input type="text" id="title" required />
+      </label>
+
+      <label>
+        Author
+        <input type="text" id="author" required />
+      </label>
+
+      <label>
+        Pages
+        <input type="number" id="pages" min="1" required />
+      </label>
+
+      <label class="checkbox-label">
+        <input type="checkbox" id="isRead" />
+        Already read?
+      </label>
+
+      <div class="form-actions">
+        <button type="submit" class="btn">Add Book</button>
+        <button type="button" id="cancel-btn" class="btn link">Cancel</button>
+      </div>
+    </form>
+
+    <!-- Container where book cards will be injected -->
+    <section id="library-container" class="library-grid" aria-live="polite"></section>
+  </main>
+
+
+
+    
+    <script src="script.js"></script>
+</body>
+</html>
