@@ -12,6 +12,9 @@ class Book {
      this.isRead = isRead;
     }
 
+    toggleRead() {
+        this.isRead = !this.isRead; 
+    }
 }
 
 function addBookToLibrary(){
@@ -52,17 +55,36 @@ libraryContainer.addEventListener("click", (e)=>{
     if(e.target.classList.contains("toggle-read")){
          const index = e.target.dataset.index;
 
-        myLibrary[index].isRead = !myLibrary[index].isRead;
+        myLibrary[index].toggleRead();
 
+        renderLibrary();
+    }
+
+    if(e.target.classList.contains("remove")){
+        const index = e.target.dataset.index;
+
+        myLibrary.splice(index, 1);
+        
         renderLibrary();
     }
 })
 
 
+
 bookForm.addEventListener('submit', (event)=>{
     event.preventDefault()
     addBookToLibrary()
+
+    bookForm.reset()
 })
 
 showDocument.addEventListener('click',()=>{ document.getElementById('book-form').style.display = 'block';
 })
+
+let book1 = new Book('The Hobbit', 'J.R.R Tolkien', 242, true)
+let book2 = new Book('Eloquent JavaScript', 'Marjin Haverbreke', 472, true)
+let book3 = new Book('Clean Code', 'Robert C. Martin', 464, true)
+
+
+myLibrary.push(book1, book2, book3);
+renderLibrary()

@@ -1,22 +1,99 @@
-* {
-    margin: 0;
-    padding: 0;
+:root{
+  --bg: #f6f7fb;
+  --card: #fff;
+  --accent: #2b6cb0;
+  --muted: #6b7280;
 }
 
-.container {
-    background-color: burlywood;
-    display: grid;
-    height: 100vh;
-
+*{box-sizing:border-box}
+body{
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  margin:0;
+  background:var(--bg);
+  color:#111827;
+  padding:24px;
 }
 
-.library-grid {
-    background-color: aliceblue;
-    border: 2px dashed blue;
+.container{max-width:900px;margin:0 auto}
+
+header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+  margin-bottom:18px;
 }
 
-.book {
-    border: 2px solid black;
-    height: 200px;
-    width: 200px;
+h1{margin:0;font-size:1.6rem}
+.controls .btn{padding:8px 12px}
+
+.book-form{
+  background:var(--card);
+  padding:16px;
+  border-radius:8px;
+  box-shadow:0 2px 6px rgba(2,6,23,0.06);
+  margin-bottom:18px;
+  display:grid;
+  gap:10px;
 }
+
+.book-form label{
+  display:flex;
+  flex-direction:column;
+  font-size:0.9rem;
+}
+
+.book-form input[type="text"],
+.book-form input[type="number"]{
+  padding:8px;
+  border-radius:6px;
+  border:1px solid #e6e9ef;
+  margin-top:6px;
+}
+
+.checkbox-label{display:flex;align-items:center;gap:8px}
+
+.form-actions{display:flex;gap:8px;justify-content:flex-end}
+
+.btn{
+  background:var(--accent);
+  color:white;
+  border:none;
+  padding:8px 12px;
+  border-radius:8px;
+  cursor:pointer;
+}
+
+.btn.link{
+  background:transparent;
+  color:var(--muted);
+  padding:8px;
+  border:1px solid transparent;
+}
+
+.library-grid{
+  display:grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap:14px;
+}
+
+/* Book card */
+.book{
+  background:var(--card);
+  padding:12px;
+  border-radius:10px;
+  box-shadow:0 1px 3px rgba(2,6,23,0.06);
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+
+.book-title{font-weight:600}
+.book-meta{font-size:0.9rem;color:var(--muted)}
+.card-actions{display:flex;gap:8px;margin-top:auto}
+.small-btn{
+  padding:6px 8px;border-radius:8px;border:1px solid #e6e9ef;background:transparent;cursor:pointer;
+  font-size:0.9rem;
+}
+.small-btn.read{background:#d1fae5;border-color:#bbf7d0}
+.remove{color:#e11d48;border-color:#fee2e2}
